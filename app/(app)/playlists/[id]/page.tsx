@@ -2,8 +2,8 @@ import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { PlaylistDetail } from "./PlaylistDetail";
 
-export default async function PlaylistPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
+export default async function PlaylistPage({ params }: { params: { id: string } }) {
+  const { id } = params;
   const supabase = await createClient();
   const {
     data: { user },

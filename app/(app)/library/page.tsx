@@ -5,9 +5,9 @@ import { RecentlyPlayed } from "./RecentlyPlayed";
 export default async function LibraryPage({
   searchParams,
 }: {
-  searchParams: Promise<{ addTo?: string }>;
+  searchParams: { addTo?: string };
 }) {
-  const { addTo } = await searchParams;
+  const { addTo } = searchParams ?? {};
   const supabase = await createClient();
   const {
     data: { user },
